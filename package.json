@@ -15,12 +15,19 @@
   "type": "module",
   "main": "dist/main.js",
   "scripts": {
-    "debug": "node ./dist/main.js --debug",
-    "start": "node ./dist/main.js",
+    "debug": "node ./dist/bin/index.js --debug",
+    "start": "node ./dist/bin/index.js",
     "build": "tsc"
   },
+  "bin": {
+    "rae": "./dist/bin/index.js"
+  },
   "devDependencies": {
+    "@types/commander": "^2.12.0",
     "@types/node": "24.10.2",
     "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "commander": "^14.0.2"
   }
 }
