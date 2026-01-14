@@ -1,6 +1,6 @@
 import type { ErrorResponse, RandomParams, WordOnlyResponse } from "./interface/api.js";
 
-export async function getRandom(params: RandomParams) {
+export async function getRandom(params: RandomParams): Promise<WordOnlyResponse | null> {
   try {
     let url_params: string = ""
 
