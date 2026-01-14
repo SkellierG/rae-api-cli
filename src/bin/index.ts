@@ -59,7 +59,7 @@ program
         console.log(result.data.word);
       })
       .catch((err) => {
-        console.error(err);
+        console.error(options, err);
       })
   })
 
@@ -83,26 +83,29 @@ program
 
     await getWords({ palabra: str })
       .then((result) => {
+
+        //console.info(result?.data.meanings[0])
+
         if (result == null) throw new Error("getWords({ palabra }) function returned null");
         console.log(result.data.word)
 
         if (options.origin) {
           for (let meaning of result.data.meanings) {
-            console.log(meaning.origin.raw);
+            if (meaning.origin?.raw) console.log(meaning.origin.raw);
           }
         }
 
         if (options.senses) {
           for (let meaning of result.data.meanings) {
             for (let sense of meaning.senses) {
-              console.log(sense.meaning_number + ": " + sense.description)
+              if (sense?.meaning_number && sense?.description) console.log(sense.meaning_number + ": " + sense.description)
             }
           }
         }
 
       })
       .catch((error) => {
-        console.error(error);
+        console.error(str, options, error);
       })
   })
 
