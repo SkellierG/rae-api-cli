@@ -2,7 +2,7 @@ import type { ErrorResponse, WordOnlyResponse } from "./interface/api.js";
 
 export async function getDaily(): Promise<WordOnlyResponse | null> {
   try {
-    const response: Response = await fetch("https://rae-api.com/api/daly/");
+    const response: Response = await fetch("https://rae-api.com/api/daily/");
 
     if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
 
